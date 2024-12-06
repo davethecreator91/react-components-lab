@@ -1,45 +1,68 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun } from '@fortawesome/free-regular-svg-icons';
-import './App.css'
 
-Forecast = [
+import './App.css'
+import WeatherCast from './components/WeatherForecast/WeatherCast';
+
+const weatherForecasts = [
   {
-    day: "Mon",
-    img: <FontAwesomeIcon icon={faSun} />,
-    weather: "conditions: sunny"
-    time: "time: Morning"
+    day: 'Mon',
+    img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/day.svg',
+    imgAlt: 'sun icon',
+    conditions: 'sunny',
+    time: 'Morning',
   },
   {
-    day: "Tue",
-    img: <FontAwesomeIcon icon={faMoon} />,
-    weather: "conditions: clear",
-    time: "time: Night"
+    day: 'Tue',
+    img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/night.svg',
+    imgAlt: 'moon icon',
+    conditions: 'clear',
+    time: 'Night',
   },
   {
-    day: "Wed",
-    img: <FontAwesomeIcon icon={faCloudBolt} />,
-    weather: "conditions: stormy",
-    time: "time: All Day"
+    day: 'Wed',
+    img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/stormy.svg',
+    imgAlt: 'clouds with lightning icon',
+    conditions: 'stormy',
+    time: 'All Day',
   },
   {
-    day: "Thu",
-    img: <FontAwesomeIcon icon={faCloudSun} />,
-    weather: "conditions: overcast",
-    time: "time: Evening"
+    day: 'Thu',
+    img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-day_t7ckxp.svg',
+    imgAlt: 'sun overcast by clouds icon',
+    conditions: 'overcast',
+    time: 'Evening',
   },
   {
-    day: "Fri",
-    img: <FontAwesomeIcon icon={faCloudMoon} />,
-    weather: "conditions: cloudy",
-    time: "time: Night"
+    day: 'Fri',
+    img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-night.svg',
+    imgAlt: 'moon overcast by clouds icon',
+    conditions: 'cloudy',
+    time: 'Night',
   },
 ];
 
-function App() {
+
+
+const App = () => {
 
   return (
     <>
- 
+
+  <h1>Local Weather</h1>
+{weatherForecasts.map((weather)=> {
+  return (
+<WeatherCast
+day={weather.day}
+img={weather.img}
+imgAlt={weather.imgAlt}
+conditions={weather.conditions}
+time={weather.time}
+/>
+  )
+})}
+
+
+
+
     </>
   )
 }
